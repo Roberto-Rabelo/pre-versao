@@ -1,0 +1,104 @@
+﻿@using static AdminLTE.MVC.Helpers.NavigationIndicatorHelper;
+<aside class="main-sidebar sidebar-light-primary elevation-4">
+    <a href="~/Home" class="brand-link">
+        <img src="~/img/logo.png" alt="AcquaX" class="brand-image"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light"><br/></span>
+    </a>
+    <div class="sidebar">
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            <img src="~/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+            <a href="#" class="d-block">Hi, @User.Identity.Name </a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+            <a href="#" class="d-block">Hi, Visitor</a>
+        </div>
+    </div>
+}
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item ">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link @Url.MakeActiveClass("home","index")">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Home
+                        </p>
+                    </a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item ">
+                        <a asp-controller="Home" asp-action="agua" class="nav-link @Url.MakeActiveClass("home","agua")">
+                            <i class="nav-icon fas fa-tint"></i>
+                            <p>
+                                Água
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a asp-controller="Home" asp-action="energia" class="nav-link @Url.MakeActiveClass("home","energia")">
+                            <i class="nav-icon fas fa-bolt"></i>
+                            <p>
+                                Energia
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a asp-controller="Home" asp-action="gas" class="nav-link @Url.MakeActiveClass("home","gas")">
+                            <i class="nav-icon fas fa-fire"></i>
+                            <p>
+                                Gás
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a asp-controller="Home" asp-action="Privacy" class="nav-link @Url.MakeActiveClass("home","privacy")">
+                            <i class="nav-icon fas fa-lock"></i>
+                            <p>
+                                Privacy
+                            </p>
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item ">
+                        <a asp-controller="Home" asp-action="Estados" class="nav-link @Url.MakeActiveClass("home","Estados")">
+                            <i class="nav-icon fas fa-map-marker"></i>
+                            <p>
+                                Estados
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a asp-controller="Home" asp-action="Categorias" class="nav-link @Url.MakeActiveClass("home","Categorias")">
+                            <i class="nav-icon fas fa-list-alt "></i>
+                            <p>
+                                Categorias
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a asp-controller="Home" asp-action="Promoções" class="nav-link @Url.MakeActiveClass("home","Promoções")">
+                            <i class="nav-icon fas fa-heart"></i>
+                            <p>
+                                Promoções
+                            </p>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</aside>

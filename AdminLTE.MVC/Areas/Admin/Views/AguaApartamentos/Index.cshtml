@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.AguaApartamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dt_leitura_atual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.re_leitura_atual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.re_valor_atual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FotoPath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dt_leitura_atual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.re_leitura_atual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.re_valor_atual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FotoPath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apartamento.Bloco)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AguaApartamentoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AguaApartamentoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AguaApartamentoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

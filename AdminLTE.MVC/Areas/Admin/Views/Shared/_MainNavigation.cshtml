@@ -1,0 +1,162 @@
+﻿@using static AdminLTE.MVC.Helpers.NavigationIndicatorHelper;
+<aside class="main-sidebar sidebar-light-primary elevation-4">
+    <a href="~/Home" class="brand-link">
+        <img src="~/img/logo.png" alt="AcquaX" class="brand-image"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light"><br/></span>
+    </a>
+    <div class="sidebar">
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            <img src="~/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+            <a href="#" class="d-block">Hi, @User.Identity.Name </a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+            <a href="#" class="d-block">Hi, Administrador</a>
+        </div>
+    </div>
+}
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item ">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link @Url.MakeActiveClass("home","index")">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Home
+                        </p>
+                    </a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+            <div class="btn-group dropright">
+                <button type="button" style="width:50px; height:50px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-hotel"></i>
+                    <p>
+                        Condominio
+                    </p>
+                </button>
+                <div class="dropdown-menu">
+
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a asp-area="Admin" asp-controller="Condominios" asp-action="Index" class="nav-link"> Listagem de condominio</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a asp-area="Admin" asp-controller="Condominios" asp-action="Create" class="nav-link"> Criar condominio</a>
+
+                    </li>
+
+                </div>
+            </div>
+                            <div class="btn-group dropright">
+                                <button type="button" style="width:50px; height:50px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-house-user"></i>
+                                    <p>
+                                        Apartamento
+                                    </p>
+                                </button>
+                                <div class="dropdown-menu">
+
+                                    <li class="nav-item d-none d-sm-inline-block">
+                                        <a asp-area="Admin" asp-controller="Apartamentos" asp-action="Index" class="nav-link"> Listagem Apartamento</a>
+                                    </li>
+
+                                    <li class="nav-item ">
+                                        <a asp-area="Admin" asp-controller="Apartamentos" asp-action="Create" class="nav-link"> Criar Apartamento</a>
+
+                                    </li>
+
+                                </div>
+                            </div>
+
+                                            <div class="btn-group dropright">
+                                                <button type="button" style="width:50px; height:50px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-tint"></i>
+                                                    <p>
+                                                        Agua Apartamento
+                                                    </p>
+                                                </button>
+                                                <div class="dropdown-menu">
+
+                                                    <li class="nav-item d-none d-sm-inline-block">
+                                                        <a asp-area="Admin" asp-controller="AguaApartamentos" asp-action="Index" class="nav-link"> Listagem Apartamento</a>
+                                                    </li>
+
+                                                    <li class="nav-item ">
+                                                        <a asp-area="Admin" asp-controller="AguaApartamentos" asp-action="Create" class="nav-link"> Criar leitura do apartamento</a>
+
+                                                    </li>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="btn-group dropright">
+                                                <button type="button" style="width:50px; height:50px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-water"></i>
+                                                    <p>
+                                                        Agua Condominio
+                                                    </p>
+                                                </button>
+                                                <div class="dropdown-menu">
+
+                                                    <li class="nav-item d-none d-sm-inline-block">
+                                                        <a asp-area="Admin" asp-controller="AguaCondominio" asp-action="Index" class="nav-link"> Listagem Apartamento</a>
+                                                    </li>
+
+                                                    <li class="nav-item ">
+                                                        <a asp-area="Admin" asp-controller="AguaCondominio" asp-action="Create" class="nav-link"> Criar leitura do apartamento</a>
+
+                                                    </li>
+
+                                                </div>
+                                            </div>
+
+                                                                            <li class="nav-item ">
+                                                                                <a asp-controller="Home" asp-action="Privacy" class="nav-link @Url.MakeActiveClass("home","privacy")">
+                                                                                    <i class="nav-icon fas fa-lock"></i>
+                                                                                    <p>
+                                                                                        Privacy
+                                                                                    </p>
+                                                                                </a>
+                                                                            </li>
+ }
+                                                                        else
+                                                                        {
+                                                            <li class="nav-item ">
+                                                                <a asp-controller="Home" asp-action="Estados" class="nav-link @Url.MakeActiveClass("home","Estados")">
+                                                                    <i class="nav-icon fas fa-map-marker"></i>
+                                                                    <p>
+                                                                        Estados
+                                                                    </p>
+                                                                </a>
+                                                            </li>
+                                                                            <li class="nav-item ">
+                                                                                <a asp-controller="Home" asp-action="Categorias" class="nav-link @Url.MakeActiveClass("home","Categorias")">
+                                                                                    <i class="nav-icon fas fa-list-alt "></i>
+                                                                                    <p>
+                                                                                        Categorias
+                                                                                    </p>
+                                                                                </a>
+                                                                            </li>
+                                                                                            <li class="nav-item ">
+                                                                                                <a asp-controller="Home" asp-action="Promoções" class="nav-link @Url.MakeActiveClass("home","Promoções")">
+                                                                                                    <i class="nav-icon fas fa-heart"></i>
+                                                                                                    <p>
+                                                                                                        Promoções
+                                                                                                    </p>
+                                                                                                </a>
+                                                                                            </li>
+}
+            </ul>
+        </nav>
+    </div>
+</aside>

@@ -1,0 +1,61 @@
+﻿@model AdminLTE.MVC.Models.AguaCondominio
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AguaCondominio</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AguaCondominioId" />
+            <div class="form-group">
+                <label asp-for="Mes" class="control-label"></label>
+                <input asp-for="Mes" class="form-control" />
+                <span asp-validation-for="Mes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label"></label>
+                <input asp-for="Ano" class="form-control" />
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dt_leitura_atual" class="control-label"></label>
+                <input asp-for="dt_leitura_atual" class="form-control" />
+                <span asp-validation-for="dt_leitura_atual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="re_leitura_atual" class="control-label"></label>
+                <input asp-for="re_leitura_atual" class="form-control" />
+                <span asp-validation-for="re_leitura_atual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="re_valor_atual" class="control-label"></label>
+                <input asp-for="re_valor_atual" class="form-control" />
+                <span asp-validation-for="re_valor_atual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FotoPath" class="control-label"></label>
+                <input asp-for="FotoPath" class="form-control" />
+                <span asp-validation-for="FotoPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CondominioId" class="control-label"></label>
+                <select asp-for="CondominioId" class="form-control" asp-items="ViewBag.CondominioId"></select>
+                <span asp-validation-for="CondominioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

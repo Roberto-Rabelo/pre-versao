@@ -1,0 +1,42 @@
+﻿@model AdminLTE.MVC.Models.Apartamento
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Apartamento</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.apartamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.apartamento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bloco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bloco)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Condominio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Condominio.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ApartamentoId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
